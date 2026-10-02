@@ -1,0 +1,208 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --gold: #D4AF37;
+    --gold-bright: #FFD700;
+    --gold-dark: #997B19;
+    --gold-light: #F7E7A9;
+    --stock-green: #16C784;
+    --stock-red: #EA3943;
+    --bg-dark: #050505;
+    --bg-secondary: #0B0B0B;
+    --bg-card: #0F0F12;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: #050505;
+    color: #F5F5F5;
+    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #050505;
+    color: #F5F5F5;
+    overflow-x: hidden;
+  }
+
+  #root {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    border: none;
+    max-width: 100%;
+  }
+
+  h1, h2, h3, h4, .font-cinzel {
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.08em;
+  }
+
+  .font-mono-numbers {
+    font-family: 'JetBrains Mono', monospace;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: #222222;
+  border-radius: 3px;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
+}
+
+/* Metallic Gold Text Gradient */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #FFF0B3 0%, #FFD700 30%, #D4AF37 70%, #997B19 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gold-silver {
+  background: linear-gradient(135deg, #FFFFFF 0%, #D4AF37 50%, #B8860B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Metallic Gold Border */
+.border-gold-gradient {
+  border-image: linear-gradient(135deg, rgba(255, 215, 0, 0.6), rgba(212, 175, 55, 0.2), rgba(153, 123, 25, 0.4)) 1;
+}
+
+/* Glassmorphism Luxury Cards */
+.glass-panel {
+  background: rgba(11, 11, 14, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(212, 175, 55, 0.16);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
+}
+
+.glass-panel-hover {
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(15, 15, 20, 0.85);
+  border-color: rgba(255, 215, 0, 0.35);
+  box-shadow: 0 12px 40px -8px rgba(212, 175, 55, 0.15), 0 0 20px -2px rgba(212, 175, 55, 0.1);
+  transform: translateY(-3px);
+}
+
+/* Gold CTA Button styling */
+.btn-gold-luxury {
+  position: relative;
+  background: linear-gradient(135deg, #FFE885 0%, #FFD700 30%, #D4AF37 75%, #AA820A 100%);
+  color: #050505;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 9999px;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px -4px rgba(212, 175, 55, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.6);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-gold-luxury::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -120%;
+  width: 70%;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    transparent 100%
+  );
+  transform: rotate(25deg);
+  transition: all 0.75s ease;
+  pointer-events: none;
+}
+
+.btn-gold-luxury:hover {
+  transform: scale(1.035);
+  box-shadow: 0 8px 30px rgba(255, 215, 0, 0.65), 0 0 25px rgba(212, 175, 55, 0.35);
+}
+
+.btn-gold-luxury:hover::after {
+  left: 150%;
+}
+
+/* Subtle Film Grain */
+.bg-grain {
+  background-image: radial-gradient(rgba(212, 175, 55, 0.04) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Subtle Financial Grid Lines */
+.bg-financial-grid {
+  background-size: 60px 60px;
+  background-image: 
+    linear-gradient(to right, rgba(212, 175, 55, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(212, 175, 55, 0.035) 1px, transparent 1px);
+}
+
+/* Keyframe animations */
+@keyframes ticker {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+.animate-ticker {
+  display: flex;
+  width: max-content;
+  animation: ticker 35s linear infinite;
+}
+
+.animate-ticker:hover {
+  animation-play-state: paused;
+}
+
+@keyframes pulseGold {
+  0%, 100% { opacity: 0.25; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(1.05); }
+}
+
+.animate-pulse-gold {
+  animation: pulseGold 6s ease-in-out infinite;
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(1deg); }
+}
+
+.animate-float {
+  animation: floatSlow 5s ease-in-out infinite;
+}
+
+/* Custom Animated Money Cursor (Enabled on fine pointer / desktop mouse devices) */
+@media (hover: hover) and (pointer: fine) {
+  html, body, a, button, [role="button"], select, label {
+    cursor: none !important;
+  }
+}
+
